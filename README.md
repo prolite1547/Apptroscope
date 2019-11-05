@@ -1,4 +1,4 @@
-# astroscope
+# Apptroscope
 
 A new Flutter project.
 
