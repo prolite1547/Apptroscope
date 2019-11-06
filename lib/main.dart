@@ -19,7 +19,9 @@ class MyApp extends StatelessWidget {
             body1: BodyTextStyle
           ),
       ),
-      home:  LayoutDetails(),
+      home:  LayoutZodiacs(),
+      // LayoutZodiacs()
+      // LayoutDetails(),
     );
   }
 }

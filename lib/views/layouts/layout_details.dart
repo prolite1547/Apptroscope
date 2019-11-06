@@ -42,10 +42,10 @@ class LayoutDetails extends StatelessWidget {
                  Container(
                     constraints: BoxConstraints.expand(height: 100.0),
                     margin: new EdgeInsets.only(top: 25.0, left: 20.0, right: 20.0), 
-                    child: TextHeaderSub("VIRGO", "Aug to Sep")
+                    child: TextHeaderSub("VIRGO", "AUG to SEP")
                  ),
                  Container(
-                    constraints: BoxConstraints.expand(height: MediaQuery.of(context).size.height  - 250.0),
+                    constraints: BoxConstraints.expand(height: MediaQuery.of(context).size.height  - 220.0),
                     margin: new EdgeInsets.only(top: 25.0, left: 20.0, right: 20.0),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -56,7 +56,7 @@ class LayoutDetails extends StatelessWidget {
                         bottomRight: Radius.circular(10)
                        ),
                       boxShadow: [new BoxShadow( color: DetailsBackColor,
-                        blurRadius: 3.0,)]
+                        blurRadius: 15.0,)]
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,

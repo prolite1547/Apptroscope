@@ -29,6 +29,9 @@ class _SectionTabState extends State<SectionTab> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    double screenSizeHeight = MediaQuery.of(context).size.height;
+    double containerHeight = screenSizeHeight - 300.0;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -53,8 +56,7 @@ class _SectionTabState extends State<SectionTab> with TickerProviderStateMixin {
           ),
         ),
         Container(
- 
-          constraints: BoxConstraints.expand(height: 275.0),
+          constraints: BoxConstraints.expand(height: containerHeight - 20),
           decoration: BoxDecoration(
             color: Colors.transparent
           ),
@@ -62,9 +64,9 @@ class _SectionTabState extends State<SectionTab> with TickerProviderStateMixin {
           child: TabBarView(
               controller:  controller,
               children: <Widget>[
-                tab1.Tab1("yesterday"),
-                tab1.Tab1("today"),
-                tab1.Tab1("tomorrow"),
+                SingleChildScrollView(child:tab1.Tab1("yesterday"),),
+                SingleChildScrollView(child: tab1.Tab1("today"),),
+                SingleChildScrollView(child: tab1.Tab1("tomorrow"),),
               ],
           ),
         )

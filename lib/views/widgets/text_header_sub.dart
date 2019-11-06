@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "../../models/ZodiacSign.dart";
 import "../../styles.dart";
 
 
@@ -11,6 +12,7 @@ class TextHeaderSub extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    final zodiac = Zodiac.fetchAll();
     return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -18,14 +20,16 @@ class TextHeaderSub extends StatelessWidget{
       
           Row(
             children: <Widget>[
-              Image.asset("assets/images/zodiac/virgo.png", height: 64.0, width: 64.0,),
+              Image.asset(zodiac[5].zodiacSign[0].logo, height: 64.0, width: 64.0,),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
                     padding: new EdgeInsetsDirectional.only(start: 5.0),
                     child: Text(_header, style: HeaderTextStyle,),
                   ),
                   Container(
+                    padding: new EdgeInsetsDirectional.only(start: 10.0),
                     child: Text(_subHeader, style: BodyTextStyle,),
                   )
                   
