@@ -1,3 +1,4 @@
+import 'package:astroscope/main.dart';
 import 'package:flutter/material.dart';
 import '../../models/ZodiacSign.dart';
 import '../../styles.dart';
@@ -24,48 +25,72 @@ class LayoutZodiacs extends StatelessWidget {
         ),
         Container(
           margin: new EdgeInsets.only(top: 150.0),
-          child:  Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.max,
-              children: _imageButtons(3, zodiac),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.max,
-              children: _imageButtons(6, zodiac),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.max,
-              children: _imageButtons(9, zodiac),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.max,
-              children: _imageButtons(12, zodiac),
-            ),
-          ],
-        ),)
+          child: Column(
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max,
+                children: _imageButtons(3, zodiac, context),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max,
+                children: _imageButtons(6, zodiac, context),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max,
+                children: _imageButtons(9, zodiac, context),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max,
+                children: _imageButtons(12, zodiac, context),
+              ),
+            ],
+          ),
+        )
       ],
     ));
   }
 
-  List<Widget> _imageButtons(int counter, List zodiac) {
+  List<Widget> _imageButtons(int counter, List zodiac, BuildContext context) {
     List<Widget> widget = [];
     for (var i = counter - 3; i < counter; i++) {
       widget.add(Container(
         margin: new EdgeInsets.symmetric(vertical: 10.0),
         child: Column(
           children: <Widget>[
-            Image.asset(zodiac[i].zodiacSign[0].logo,
-            height: 64.0, width: 64.0),
-            Text(zodiac[i].zodiacSign[0].logoTitle, style: BodyTextStyle,)
+            ClipOval(
+              child: Container(
+                  height: 64.0,
+                  width: 64.0,
+                  padding: new EdgeInsets.all(0.0),
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(zodiac[i].zodiacSign[0].logo))),
+                  child: FlatButton(
+                    child: null,
+                    onPressed: () => _onZodiacTap(
+                      context, 
+                      zodiac[i].zodiacSign[0].logoTitle,
+                      zodiac[i].zodiacSign[0].dateRange,
+                      zodiac[i].zodiacSign[0].logo,
+                      ),
+                  )),
+            ),
+            Text(
+              zodiac[i].zodiacSign[0].logoTitle,
+              style: BodyTextStyle,
+            )
           ],
         ),
       ));
     }
     return widget;
+  }
+
+  void _onZodiacTap(BuildContext context, String zodiac, String dateRange, String assetPath){
+    Navigator.pushNamed(context, ZodiacDetailsRoute, arguments: {"zodiac": zodiac, "dateRange": dateRange, "assetPath": assetPath});
   }
 }

@@ -1,10 +1,15 @@
 import 'package:astroscope/styles.dart';
 import "package:flutter/material.dart";
 import "../widgets/text_header_sub.dart";
-import "../widgets/image_banner.dart";
 import "../widgets/section_tab.dart";
+import "dart:async";
  
 class LayoutDetails extends StatelessWidget {
+  final String zodiacSign;
+  final String dateRange;
+  final String assetPath;
+
+  LayoutDetails({this.zodiacSign, this.dateRange, this.assetPath});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +47,7 @@ class LayoutDetails extends StatelessWidget {
                  Container(
                     constraints: BoxConstraints.expand(height: 100.0),
                     margin: new EdgeInsets.only(top: 25.0, left: 20.0, right: 20.0), 
-                    child: TextHeaderSub("VIRGO", "AUG to SEP")
+                    child: TextHeaderSub(zodiacSign.toUpperCase(), dateRange, assetPath)
                  ),
                  Container(
                     constraints: BoxConstraints.expand(height: MediaQuery.of(context).size.height  - 220.0),
@@ -62,7 +67,7 @@ class LayoutDetails extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
-                            SectionTab()
+                            SectionTab(zodiac: zodiacSign.toLowerCase(),)
                       ],
                     ),
                     

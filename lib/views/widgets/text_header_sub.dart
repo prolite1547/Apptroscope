@@ -7,12 +7,14 @@ import "../../styles.dart";
 class TextHeaderSub extends StatelessWidget{
   final String _header;
   final String _subHeader;
+  final String _assetPath;
 
-  TextHeaderSub(this._header, this._subHeader);
+
+  TextHeaderSub(this._header, this._subHeader, this._assetPath);
 
   @override
   Widget build(BuildContext context) {
-    final zodiac = Zodiac.fetchAll();
+ 
     return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -20,7 +22,7 @@ class TextHeaderSub extends StatelessWidget{
       
           Row(
             children: <Widget>[
-              Image.asset(zodiac[5].zodiacSign[0].logo, height: 64.0, width: 64.0,),
+              Image.asset(_assetPath, height: 64.0, width: 64.0,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[

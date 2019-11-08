@@ -6,14 +6,18 @@ import '../widgets/tab_pages/tab1.dart' as tab1;
 // import '../widgets/tab_pages/tab3.dart' as tab3;
 
 class SectionTab extends StatefulWidget {
+  final String zodiac;
+  SectionTab({this.zodiac});
   @override
   State<StatefulWidget> createState() {
-    return _SectionTabState();
+    return _SectionTabState(zodiac);
   }
 }
 
 class _SectionTabState extends State<SectionTab> with TickerProviderStateMixin {
   TabController controller;
+  String zodiac;
+  _SectionTabState(this.zodiac);
 
   @override
   void initState() {
@@ -64,9 +68,9 @@ class _SectionTabState extends State<SectionTab> with TickerProviderStateMixin {
           child: TabBarView(
               controller:  controller,
               children: <Widget>[
-                SingleChildScrollView(child:tab1.Tab1("yesterday"),),
-                SingleChildScrollView(child: tab1.Tab1("today"),),
-                SingleChildScrollView(child: tab1.Tab1("tomorrow"),),
+                SingleChildScrollView(child:tab1.Tab1("yesterday", zodiac),),
+                SingleChildScrollView(child: tab1.Tab1("today", zodiac),),
+                SingleChildScrollView(child: tab1.Tab1("tomorrow", zodiac),),
               ],
           ),
         )
