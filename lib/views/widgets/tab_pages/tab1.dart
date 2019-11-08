@@ -22,7 +22,8 @@ class Tab1State extends State<Tab1> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return  Padding(
+      padding: new EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 5.0),
       child: Column(
         children: <Widget>[
             FutureBuilder(
@@ -37,7 +38,7 @@ class Tab1State extends State<Tab1> {
               },
             )
         ],
-      ),
-    );
+      )
+     );
   }
 }

@@ -21,74 +21,62 @@ class TabDetails extends StatelessWidget {
       children: <Widget>[
         Text(currentDate, style: DetailsTitleTextStyle),
         Container(
-          padding: const EdgeInsets.only(top: 10.0),
+          margin: const EdgeInsets.only(top: 20.0),
           child: Text(description, style: DetailsSubTextStyle),
         ),
         Container(
-          padding: const EdgeInsets.only(top: 10.0),
+          padding: const EdgeInsets.only(top: 25.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Text("Compatibility:  ", style: DetailsTitleTextStyle),
-              Text(
-                compatibility,
-                style: DetailsSubTextStyle,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text("Compatibility:  ", style: DetailsTitleTextStyle),
+                  Padding(
+                    padding: new EdgeInsets.only(top: 5.0),
+                    child : Text("Mood:  ", style: DetailsTitleTextStyle)
+                  ),
+                  Padding(
+                    padding:  new EdgeInsets.only(top: 5.0),
+                    child: Text("Lucky Color:  ", style: DetailsTitleTextStyle)
+                  ),
+                  Padding(
+                    padding:  new EdgeInsets.only(top: 5.0),
+                    child: Text("Lucky Number:  ", style: DetailsTitleTextStyle),
+                  ),
+                  Padding(
+                    padding: new EdgeInsets.only(top: 5.0),
+                    child: Text("Time of Luck:  ", style: DetailsTitleTextStyle),
+                  )
+                  ],
+                
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[ 
+                  Text(compatibility, style: DetailsSubTextStyle,),
+                  Padding(
+                    padding:  new EdgeInsets.only(top: 5.0),
+                    child: Text( mood, style: DetailsSubTextStyle,),
+                  ),
+                  Padding(
+                    padding: new EdgeInsets.only(top: 5.0),
+                    child: Text(color,style: DetailsSubTextStyle,),
+                  ),
+                  Padding(
+                    padding: new EdgeInsets.only(top: 5.0),
+                    child: Text(luckyNumber, style: DetailsSubTextStyle),
+                  ),
+                  Padding(
+                    padding: new EdgeInsets.only(top: 5.0),
+                    child: Text(luckyTime, style: DetailsSubTextStyle),
+                  )
+                ],
               )
             ],
           ),
         ),
-        Container(
-          padding: const EdgeInsets.only(top: 5.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Text("Mood:  ", style: DetailsTitleTextStyle),
-              Text(
-                mood,
-                style: DetailsSubTextStyle,
-              )
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.only(top: 5.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Text("Lucky Color:  ", style: DetailsTitleTextStyle),
-              Text(
-                color,
-                style: DetailsSubTextStyle,
-              )
-            ],
-          ),
-        ),
-         Container(
-          padding: const EdgeInsets.only(top: 5.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Text("Lucky Number:  ", style: DetailsTitleTextStyle),
-              Text(
-                luckyNumber,
-                style: DetailsSubTextStyle,
-              )
-            ],
-          ),
-        ),
-         Container(
-          padding: const EdgeInsets.only(top: 5.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Text("Time of Luck:  ", style: DetailsTitleTextStyle),
-              Text(
-                luckyTime,
-                style: DetailsSubTextStyle,
-              )
-            ],
-          ),
-        )
       ],
     );
   }

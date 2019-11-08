@@ -22,7 +22,7 @@ class _SectionTabState extends State<SectionTab> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    controller = TabController(initialIndex: 1,vsync: this, length: 3);
+    controller = TabController(initialIndex: 1, vsync: this, length: 3);
   }
 
   @override
@@ -41,10 +41,8 @@ class _SectionTabState extends State<SectionTab> with TickerProviderStateMixin {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Container(
-          decoration: BoxDecoration(
-            color: DetailsBackColor
-          ),
-          padding: const EdgeInsets.symmetric( vertical: 10.0),
+          decoration: BoxDecoration(color: DetailsBackColor),
+          padding: const EdgeInsets.symmetric(vertical: 10.0),
           child: TabBar(
             labelColor: LabelColor,
             // isScrollable: true,
@@ -53,26 +51,53 @@ class _SectionTabState extends State<SectionTab> with TickerProviderStateMixin {
             labelStyle: TabTextStyle,
             controller: controller,
             tabs: <Widget>[
-              Tab(icon: Icon(Icons.calendar_today), child: Text("YESTERDAY"),),
-              Tab(icon: Icon(Icons.calendar_view_day), child: Text("TODAY"),),
-              Tab(icon: Icon(Icons.date_range) , child: Text("TOMORROW"),)
+              Tab(
+                icon: Icon(Icons.calendar_today),
+                child: Text("YESTERDAY"),
+              ),
+              Tab(
+                icon: Icon(Icons.calendar_view_day),
+                child: Text("TODAY"),
+              ),
+              Tab(
+                icon: Icon(Icons.date_range),
+                child: Text("TOMORROW"),
+              )
             ],
           ),
         ),
         Container(
-          constraints: BoxConstraints.expand(height: containerHeight - 20),
-          decoration: BoxDecoration(
-            color: Colors.transparent
-          ),
+          constraints: BoxConstraints.expand(height: containerHeight - 80),
+          decoration: BoxDecoration(color: Colors.transparent),
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
           child: TabBarView(
-              controller:  controller,
-              children: <Widget>[
-                SingleChildScrollView(child:tab1.Tab1("yesterday", zodiac),),
-                SingleChildScrollView(child: tab1.Tab1("today", zodiac),),
-                SingleChildScrollView(child: tab1.Tab1("tomorrow", zodiac),),
-              ],
+            controller: controller,
+            children: <Widget>[
+              SingleChildScrollView(
+                child: tab1.Tab1("yesterday", zodiac),
+              ),
+              SingleChildScrollView(
+                child: tab1.Tab1("today", zodiac),
+              ),
+              SingleChildScrollView(
+                child: tab1.Tab1("tomorrow", zodiac),
+              ),
+            ],
           ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Container(
+              margin: new EdgeInsets.symmetric(horizontal: 10.0),
+              child: IconButton(
+                iconSize: 30.0,
+                icon: Icon(Icons.share),
+                color: DetailsBackColor,
+                onPressed: () {},
+              ),
+            )
+          ],
         )
       ],
     );

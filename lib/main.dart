@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import './views/layouts/layout_details.dart';
 import 'views/layouts/layout_zodiacs.dart';
 import "styles.dart";
+import "./models/MyAdmob.dart";
+
 
 const ZodiacsRoute = "/";
 const ZodiacDetailsRoute = "/layout_details";
 
-void main() => runApp(MyApp());
+void main() {
+  initializeAdmob();
+  runApp(MyApp());
+} 
 
 class MyApp extends StatelessWidget {
   @override

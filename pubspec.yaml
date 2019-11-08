@@ -23,6 +23,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  admob_flutter: ^0.3.1
  
 
 dev_dependencies:
@@ -65,10 +66,22 @@ flutter:
           weight: 300
         - asset: assets/fonts/Comfortaa.ttf
           weight: 600
+
+    - family: AlegreyaSansSC
+      fonts:
         - asset : assets/fonts/AlegreyaSansSC-Bold.ttf
           weight: 700
         - asset : assets/fonts/AlegreyaSansSC-Regular.ttf
           weight: 400
+
+    - family: Raleway
+      fonts:
+        - asset : assets/fonts/Raleway-Light.ttf
+          weight: 300
+        - asset : assets/fonts/Raleway-Regular.ttf
+          weight: 400
+        - asset : assets/fonts/Raleway-Semibold.ttf
+          weight: 600
           
   #   - family: Trajan Pro
   #     fonts:

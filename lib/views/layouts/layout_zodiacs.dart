@@ -2,6 +2,8 @@ import 'package:astroscope/main.dart';
 import 'package:flutter/material.dart';
 import '../../models/ZodiacSign.dart';
 import '../../styles.dart';
+import 'package:admob_flutter/admob_flutter.dart';
+import '../../models/MyAdmob.dart';
 
 class LayoutZodiacs extends StatelessWidget {
   @override
@@ -10,7 +12,7 @@ class LayoutZodiacs extends StatelessWidget {
 
     return Scaffold(
         body: Stack(
-      children: <Widget>[
+        children: <Widget>[
         Container(
           constraints:
               BoxConstraints.expand(height: MediaQuery.of(context).size.height),
@@ -24,9 +26,14 @@ class LayoutZodiacs extends StatelessWidget {
           ),
         ),
         Container(
-          margin: new EdgeInsets.only(top: 150.0),
+          margin: new EdgeInsets.only(top: 120.0),
           child: Column(
             children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[Text("Tap your zodiac sign", style: HeaderTextStyle2,)],
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 mainAxisSize: MainAxisSize.max,
@@ -47,11 +54,20 @@ class LayoutZodiacs extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: _imageButtons(12, zodiac, context),
               ),
+
+              Container(
+                    padding: new EdgeInsets.only(top: 30.0),
+                    child:  AdmobBanner(
+                      adUnitId: getBannerAdUnitId(),
+                      adSize: AdmobBannerSize.FULL_BANNER,
+                    ),
+              )
             ],
           ),
         )
       ],
-    ));
+    )
+    );
   }
 
   List<Widget> _imageButtons(int counter, List zodiac, BuildContext context) {
@@ -72,11 +88,11 @@ class LayoutZodiacs extends StatelessWidget {
                   child: FlatButton(
                     child: null,
                     onPressed: () => _onZodiacTap(
-                      context, 
+                      context,
                       zodiac[i].zodiacSign[0].logoTitle,
                       zodiac[i].zodiacSign[0].dateRange,
                       zodiac[i].zodiacSign[0].logo,
-                      ),
+                    ),
                   )),
             ),
             Text(
@@ -90,7 +106,12 @@ class LayoutZodiacs extends StatelessWidget {
     return widget;
   }
 
-  void _onZodiacTap(BuildContext context, String zodiac, String dateRange, String assetPath){
-    Navigator.pushNamed(context, ZodiacDetailsRoute, arguments: {"zodiac": zodiac, "dateRange": dateRange, "assetPath": assetPath});
+  void _onZodiacTap(
+      BuildContext context, String zodiac, String dateRange, String assetPath) {
+    Navigator.pushNamed(context, ZodiacDetailsRoute, arguments: {
+      "zodiac": zodiac,
+      "dateRange": dateRange,
+      "assetPath": assetPath
+    });
   }
 }
