@@ -1,4 +1,3 @@
-import 'package:astroscope/styles.dart';
 import "package:flutter/material.dart";
 
 class ImageBanner extends StatelessWidget{

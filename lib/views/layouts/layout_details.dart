@@ -22,6 +22,7 @@ class LayoutDetails extends StatelessWidget {
       //       ),
       //     ),
       //     backgroundColor: Theme.of(context).backgroundColor),
+       
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -84,7 +85,7 @@ class LayoutDetails extends StatelessWidget {
                     padding: new EdgeInsets.symmetric(vertical: 10.0),
                     child:  AdmobBanner(
                       adUnitId: "ca-app-pub-3940256099942544/6300978111",
-                      adSize: AdmobBannerSize.FULL_BANNER,
+                      adSize: AdmobBannerSize.BANNER,
                     ),
                   )
                  

@@ -79,4 +79,11 @@ const HeaderTextStyle2 = TextStyle(
      
 );
 
+const HelpLabelTextStyle = TextStyle(
+  fontFamily: RalewayFontFamily,
+  fontSize: RegularFontSize,
+  fontWeight: FontWeight.w600,
+  color: Colors.white
+);
+
 

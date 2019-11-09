@@ -26,9 +26,30 @@ class LayoutZodiacs extends StatelessWidget {
           ),
         ),
         Container(
+          margin: new EdgeInsets.only(top: 25.0),
+          padding: new EdgeInsets.only(right: 10.0),
+          child:  Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  FlatButton(
+                    child: Row(
+                      children: <Widget>[
+                         Icon(Icons.help, color: Colors.white,size: 24.0,),
+                         Text("HELP", style: HelpLabelTextStyle,)
+                      ],
+                    ), 
+                    onPressed: (){
+
+                    },
+                  )
+                ],
+              ),
+        ),
+        Container(
           margin: new EdgeInsets.only(top: 120.0),
           child: Column(
             children: <Widget>[
+             
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 mainAxisSize: MainAxisSize.min,
@@ -59,7 +80,7 @@ class LayoutZodiacs extends StatelessWidget {
                     padding: new EdgeInsets.only(top: 30.0),
                     child:  AdmobBanner(
                       adUnitId: getBannerAdUnitId(),
-                      adSize: AdmobBannerSize.FULL_BANNER,
+                      adSize: AdmobBannerSize.BANNER,
                     ),
               )
             ],
