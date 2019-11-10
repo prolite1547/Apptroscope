@@ -59,7 +59,7 @@ class LayoutZodiacs extends StatelessWidget {
                     padding: new EdgeInsets.only(top: 30.0),
                     child:  AdmobBanner(
                       adUnitId: getBannerAdUnitId(),
-                      adSize: AdmobBannerSize.FULL_BANNER,
+                      adSize: AdmobBannerSize.BANNER,
                     ),
               )
             ],
