@@ -67,7 +67,7 @@ class _SectionTabState extends State<SectionTab> with TickerProviderStateMixin {
           ),
         ),
         Container(
-          constraints: BoxConstraints.expand(height: containerHeight - 80),
+          constraints: BoxConstraints.expand(height: containerHeight - 30),
           decoration: BoxDecoration(color: Colors.transparent),
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
           child: TabBarView(
@@ -85,20 +85,7 @@ class _SectionTabState extends State<SectionTab> with TickerProviderStateMixin {
             ],
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Container(
-              margin: new EdgeInsets.symmetric(horizontal: 10.0),
-              child: IconButton(
-                iconSize: 30.0,
-                icon: Icon(Icons.share),
-                color: DetailsBackColor,
-                onPressed: () {},
-              ),
-            )
-          ],
-        )
+       
       ],
     );
   }

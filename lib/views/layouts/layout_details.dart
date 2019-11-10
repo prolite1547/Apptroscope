@@ -22,6 +22,7 @@ class LayoutDetails extends StatelessWidget {
       //       ),
       //     ),
       //     backgroundColor: Theme.of(context).backgroundColor),
+       
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,

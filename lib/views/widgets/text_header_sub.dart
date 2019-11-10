@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "../../models/ZodiacSign.dart";
 import "../../styles.dart";
 
 class TextHeaderSub extends StatelessWidget {
@@ -41,6 +40,17 @@ class TextHeaderSub extends StatelessWidget {
                 ),
                
               ],
+            ),
+            Expanded(
+              child:  Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                        
+                     
+                     ],
+                )
+              ),
             )
           ],
         )
