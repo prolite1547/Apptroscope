@@ -15,7 +15,7 @@ const RalewayFontFamily = "Raleway";
 const XSmallFontSize = 8.0;
 const SmallFontSize = 12.0;
 const RegularFontSize = 16.0;
-const AppBarFontSize = 18.0;
+const AppBarFontSize = 22.0;
 const MediumFontSize = 32.0;
 const DetailsTitleFontSize = 16.0;
 const LargeFontSizee = 36.0;
@@ -57,9 +57,9 @@ const DetailsTitleTextStyle = TextStyle(
 );
 
 const DetailsSubTextStyle = TextStyle(
-  fontFamily: ThemeFontFamily,
+  fontFamily: RalewayFontFamily,
   fontSize: RegularFontSize,
-  fontWeight: FontWeight.w300,
+  fontWeight: FontWeight.w400,
   color: Colors.black
 );
 
@@ -80,10 +80,31 @@ const HeaderTextStyle2 = TextStyle(
 );
 
 const HelpLabelTextStyle = TextStyle(
-  fontFamily: RalewayFontFamily,
+  fontFamily: HeaderFontFamily,
   fontSize: RegularFontSize,
   fontWeight: FontWeight.w600,
   color: Colors.white
 );
 
+
+const HelpHeaderTextStyle = TextStyle(
+  fontFamily: HeaderFontFamily,
+  fontSize: AppBarFontSize,
+  fontWeight: FontWeight.w700,
+  color: Colors.blueGrey
+);
+
+const HelpTitleTextStyle = TextStyle(
+  fontFamily: HeaderFontFamily,
+  fontSize: RegularFontSize,
+  fontWeight: FontWeight.w600,
+  color: Colors.brown
+);
+
+const HelpSubTextStyle = TextStyle(
+  fontFamily: RalewayFontFamily,
+  fontSize: RegularFontSize,
+  fontWeight: FontWeight.w600,
+  color: Colors.black
+);
 

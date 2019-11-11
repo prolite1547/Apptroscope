@@ -46,13 +46,28 @@ class TextHeaderSub extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                        
-                     
-                     ],
+                        // IconButton(
+                        //   onPressed: (){
+                        //       popupMenu();
+                        //   },
+                        //   icon: Icon(Icons.more_vert, color: Colors.white),
+                        // )
+                  ],
                 )
               ),
             )
           ],
+        )
+      ],
+    );
+  }
+
+  Widget popupMenu(){
+    return PopupMenuButton<String>(
+      itemBuilder: (BuildContext context)=><PopupMenuEntry<String>>[
+        PopupMenuItem<String>(
+          value: "one_val",
+          child: Text("ONE VALUE"),
         )
       ],
     );

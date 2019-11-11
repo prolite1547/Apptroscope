@@ -34,7 +34,7 @@ class LayoutDetails extends StatelessWidget {
                     height: MediaQuery.of(context).size.height),
                 decoration: BoxDecoration(
                   gradient: new LinearGradient(
-                      colors: [DetailsBackColor, Colors.blueGrey],
+                      colors: [PrimaryBackColor, Colors.black],
                       begin: const FractionalOffset(1.0, 1.0),
                       end: const FractionalOffset(0.2, 0.2),
                       stops: [0.0, 1.0],

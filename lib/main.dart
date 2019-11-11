@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import './views/layouts/layout_details.dart';
 import 'views/layouts/layout_zodiacs.dart';
+import './views/layouts/layout_splash.dart';
 import "styles.dart";
 import "./models/MyAdmob.dart";
 
 
-const ZodiacsRoute = "/";
+const SplashScreen = "/";
+const ZodiacsRoute = "/layout_zodiacs";
 const ZodiacDetailsRoute = "/layout_details";
 
 void main() {
@@ -42,8 +44,11 @@ class MyApp extends StatelessWidget {
           final Map<String, dynamic> arguments = settings.arguments;
           Widget screen;
           switch(settings.name){
+              case SplashScreen:
+                screen = SpashScreen();
+              break;
               case ZodiacsRoute:
-                screen = LayoutZodiacs();
+                screen = LayoutZodiac();
               break;
               case ZodiacDetailsRoute:
                 screen = LayoutDetails(zodiacSign: arguments["zodiac"],dateRange: arguments["dateRange"], assetPath: arguments["assetPath"],);
