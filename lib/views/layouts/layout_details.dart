@@ -8,7 +8,6 @@ class LayoutDetails extends StatelessWidget {
   final String zodiacSign;
   final String dateRange;
   final String assetPath;
-
   LayoutDetails({this.zodiacSign, this.dateRange, this.assetPath});
   @override
   Widget build(BuildContext context) {

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "598505145297",
+    "firebase_url": "https://astroscope-b11a1.firebaseio.com",
+    "project_id": "astroscope-b11a1",
+    "storage_bucket": "astroscope-b11a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598505145297:android:a4c0a4c8dda998718656f0",
+        "android_client_info": {
+          "package_name": "com.deqfivestudios.astroscope"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598505145297-sgdk1l1k60ghsee8u9g4mrkh2iedg688.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWNQ6o9D5fUQlAwDhzNatP6qmmLC4qqZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598505145297-sgdk1l1k60ghsee8u9g4mrkh2iedg688.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

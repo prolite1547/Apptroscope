@@ -22,6 +22,31 @@ class LayoutZodiacState extends State<LayoutZodiac>{
       }
     );
   }
+  Future<bool> _onWillPop() {
+    showInterstitialAd();
+    return showDialog(
+      context: context,
+      builder: (context) => new AlertDialog(
+        title: new Text("Are you sure ?", style: HelpHeaderTextStyle,),
+        content: new Text('You are about to exit', style: DetailsSubTextStyle,),
+        actions: <Widget>[
+          new FlatButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: new Text('No'),
+          ),
+          new FlatButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: new Text('Yes'),
+          ),
+        ],
+      ),
+    ) ?? false;
+  }
+  @override
+  void dispose() {
+    super.dispose();
+   disposeInterstitialAd();
+  }
   @override
   Widget build(BuildContext context) {
     final zodiac = Zodiac.fetchAll();
@@ -29,7 +54,9 @@ class LayoutZodiacState extends State<LayoutZodiac>{
         DeviceOrientation.portraitUp,
         DeviceOrientation.portraitDown,
       ]);
-    return Scaffold(
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: Scaffold(
         body: Stack(
         children: <Widget>[
         Container(
@@ -106,6 +133,7 @@ class LayoutZodiacState extends State<LayoutZodiac>{
           ),
         )
       ],
+    )
     )
     );
   }
