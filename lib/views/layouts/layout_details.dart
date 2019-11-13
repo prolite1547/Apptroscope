@@ -1,14 +1,39 @@
+import 'dart:async';
+
 import 'package:astroscope/styles.dart';
 import "package:flutter/material.dart";
 import "../widgets/text_header_sub.dart";
 import "../widgets/section_tab.dart";
 import 'package:admob_flutter/admob_flutter.dart';
+import '../../models/MyAdmob.dart';
+import '../../models/Notif.dart';
 
-class LayoutDetails extends StatelessWidget {
+class LayoutDetails extends StatefulWidget{
   final String zodiacSign;
   final String dateRange;
   final String assetPath;
   LayoutDetails({this.zodiacSign, this.dateRange, this.assetPath});
+
+  @override
+  State<StatefulWidget> createState() {
+     return _LayoutDetailState(zodiacSign: zodiacSign, dateRange: dateRange, assetPath: assetPath);
+  }
+}
+
+
+class _LayoutDetailState extends State<LayoutDetails>{
+    String zodiacSign;
+    String dateRange;
+    String assetPath; 
+    var notif = new Notif();
+    _LayoutDetailState({this.zodiacSign, this.dateRange, this.assetPath});
+
+@override
+  void initState() {
+     super.initState();
+     notif.initializeNotif(context);
+     notif.runDailyTimeNotif();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +108,7 @@ class LayoutDetails extends StatelessWidget {
                   Container(
                     padding: new EdgeInsets.symmetric(vertical: 10.0),
                     child:  AdmobBanner(
-                      adUnitId: "ca-app-pub-3940256099942544/6300978111",
+                      adUnitId: getBannerAdUnitId(),
                       adSize: AdmobBannerSize.BANNER,
                     ),
                   )

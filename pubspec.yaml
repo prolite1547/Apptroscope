@@ -25,7 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   admob_flutter: ^0.3.4
   share: ^0.6.3+1
-
+  flutter_local_notifications: ^0.8.4
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
