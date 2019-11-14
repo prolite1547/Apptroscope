@@ -1,13 +1,25 @@
 import "package:flutter/material.dart";
 import "../../styles.dart";
 
-class TextHeaderSub extends StatelessWidget {
+class TextHeaderSub extends StatefulWidget {
   final String _header;
   final String _subHeader;
   final String _assetPath;
 
   TextHeaderSub(this._header, this._subHeader, this._assetPath);
+  @override
+    State<StatefulWidget> createState() {
+      return _TextHeaderSub(_header, _subHeader, _assetPath);
+    }
+  }
 
+class _TextHeaderSub extends State<TextHeaderSub>{
+    String _header;
+    String _subHeader;
+    String _assetPath;
+    bool _isReminded = false;
+
+    _TextHeaderSub(this._header, this._subHeader, this._assetPath);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,7 +28,11 @@ class TextHeaderSub extends StatelessWidget {
       children: <Widget>[
         Row(
           children: <Widget>[
-            Image.asset(
+            Expanded(
+              flex: 2,
+              child: Row(
+                children: <Widget>[
+                  Image.asset(
               _assetPath,
               height: 64.0,
               width: 64.0,
@@ -40,18 +56,22 @@ class TextHeaderSub extends StatelessWidget {
                 ),
                
               ],
+            )
+                ],
+              ),
             ),
             Expanded(
+              flex:  1,
               child:  Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                        // IconButton(
-                        //   onPressed: (){
-                        //       popupMenu();
-                        //   },
-                        //   icon: Icon(Icons.more_vert, color: Colors.white),
-                        // )
+                    FlatButton(
+                        onPressed: (){
+                              
+                        },
+                        child: Icon(Icons.more_vert, color: Colors.white,),
+                    )
                   ],
                 )
               ),

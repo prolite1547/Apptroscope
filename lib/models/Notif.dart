@@ -27,7 +27,7 @@ class Notif{
     }
     await Navigator.push(
       context,
-      new MaterialPageRoute(builder: (context) => LayoutDetails(),)
+      new MaterialPageRoute(builder: (context) => LayoutDetails(zodiacSign: "Aries",dateRange: "March 21 - April 20", assetPath: "assets/images/zodiac/aries.png", ),)
     );
 }
 
@@ -71,7 +71,7 @@ class Notif{
   }
 
   Future<void> _showDailyAtTime() async {
-    var time = Time(10, 0, 0);
+    var time = Time(11,55, 0);
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
         'repeatDailyAtTime channel id',
         'repeatDailyAtTime channel name',

@@ -15,7 +15,7 @@ class LayoutDetails extends StatefulWidget{
   LayoutDetails({this.zodiacSign, this.dateRange, this.assetPath});
 
   @override
-  State<StatefulWidget> createState() {
+  State<StatefulWidget> createState()  {
      return _LayoutDetailState(zodiacSign: zodiacSign, dateRange: dateRange, assetPath: assetPath);
   }
 }
