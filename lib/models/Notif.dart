@@ -4,13 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:async';
 
+class Notif {
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      new FlutterLocalNotificationsPlugin();
+  BuildContext context;
 
-class Notif{
- FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
- BuildContext context;
-
- void initializeNotif(BuildContext context){
-   this.context = context;
+  void initializeNotif(BuildContext context) {
+    this.context = context;
     var initializationSettingsAndroid =
         new AndroidInitializationSettings('app_icon');
     var initializationSettingsIOS = new IOSInitializationSettings(
@@ -19,19 +19,24 @@ class Notif{
         initializationSettingsAndroid, initializationSettingsIOS);
     flutterLocalNotificationsPlugin.initialize(initializationSettings,
         onSelectNotification: onSelectNotification);
- }  
+  }
 
- Future onSelectNotification(String payload) async {
+  Future onSelectNotification(String payload) async {
     if (payload != null) {
       debugPrint('notification payload: ' + payload);
     }
     await Navigator.push(
-      context,
-      new MaterialPageRoute(builder: (context) => LayoutDetails(zodiacSign: "Aries",dateRange: "March 21 - April 20", assetPath: "assets/images/zodiac/aries.png", ),)
-    );
-}
+        context,
+        new MaterialPageRoute(
+          builder: (context) => LayoutDetails(
+            zodiacSign: "Aries",
+            dateRange: "March 21 - April 20",
+            assetPath: "assets/images/zodiac/aries.png",
+          ),
+        ));
+  }
 
- Future<void> onDidReceiveLocalNotification(
+  Future<void> onDidReceiveLocalNotification(
       int id, String title, String body, String payload) async {
     // display a dialog with the notification details, tap ok to go to another page
     await showDialog(
@@ -58,7 +63,7 @@ class Notif{
     );
   }
 
-   Future<void> _showNotification() async {
+  Future<void> _showNotification() async {
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
         'your channel id', 'your channel name', 'your channel description',
         importance: Importance.Max, priority: Priority.High, ticker: 'ticker');
@@ -71,7 +76,7 @@ class Notif{
   }
 
   Future<void> _showDailyAtTime() async {
-    var time = Time(11,55, 0);
+    var time = Time(11, 45, 0);
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
         'repeatDailyAtTime channel id',
         'repeatDailyAtTime channel name',
@@ -79,20 +84,16 @@ class Notif{
     var iOSPlatformChannelSpecifics = IOSNotificationDetails();
     var platformChannelSpecifics = NotificationDetails(
         androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
-    await flutterLocalNotificationsPlugin.showDailyAtTime(
-        0,
-        'show daily title',
-        'Hey, your horosocope is now ready',
-        time,
-        platformChannelSpecifics);
+    await flutterLocalNotificationsPlugin.showDailyAtTime(0, 'show daily title',
+        'Hey, your horosocope is now ready', time, platformChannelSpecifics);
   }
 
   Future<void> _cancelAllNotifs() async {
     await flutterLocalNotificationsPlugin.cancelAll();
   }
 
-  void showNotification() async{
-      await _showNotification();
+  void showNotification() async {
+    await _showNotification();
   }
 
   void runDailyTimeNotif() async {
@@ -102,5 +103,4 @@ class Notif{
   void cancellAllNotif() async {
     await _cancelAllNotifs();
   }
-  
 }

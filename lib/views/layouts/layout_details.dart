@@ -6,8 +6,11 @@ import "../widgets/text_header_sub.dart";
 import "../widgets/section_tab.dart";
 import 'package:admob_flutter/admob_flutter.dart';
 import '../../models/MyAdmob.dart';
-import '../../models/Notif.dart';
+import '../../models/SharedPref.dart';
 
+ var sharedPref = SharedPref();
+  
+ 
 class LayoutDetails extends StatefulWidget{
   final String zodiacSign;
   final String dateRange;
@@ -25,15 +28,26 @@ class _LayoutDetailState extends State<LayoutDetails>{
     String zodiacSign;
     String dateRange;
     String assetPath; 
-    var notif = new Notif();
+    String sharedZodiac;
+    bool sharedReminder;
+
     _LayoutDetailState({this.zodiacSign, this.dateRange, this.assetPath});
 
 @override
   void initState() {
-     super.initState();
-     notif.initializeNotif(context);
-     notif.runDailyTimeNotif();
+    super.initState();
+    sharedPref.getZodiac().then((value){
+        setState(() {
+            sharedZodiac = value; 
+        });
+    });
+    sharedPref.getReminder().then((value){
+        setState(() {
+            sharedReminder = value; 
+        });
+    });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
